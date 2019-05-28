@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	 http://www.springframework.org/schema/mvc 
+	 http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd 
+	 http://www.springframework.org/schema/context 
+	 http://www.springframework.org/schema/context/spring-context.xsd">
+	 
+	 <mvc:default-servlet-handler/>
+	 
+	 <!-- 扫描controller包 -->
+	<context:component-scan base-package="com.xr.controller"></context:component-scan>
+	<!-- 配置返回json格式数据   使用的事阿里巴巴的fastjson -->
+	<mvc:annotation-driven> 
+		<mvc:message-converters register-defaults="true">  	       
+	      <!--  配置由阿里巴巴的fastjson对方法中返回的map数据进行转换 转换成json格式 -->  	        
+	         <bean id="fastJsonHttpMessageConverter" 
+	                   class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">  	  
+	              <property name="supportedMediaTypes">  	 
+	                  <list>  	          
+	                      <value>application/json;charset=UTF-8</value>  	  
+	                 </list>  	    
+	             </property>  	  
+	        </bean>  	
+	    </mvc:message-converters>  
+	 </mvc:annotation-driven> 
+          <bean id="validator"
+                   class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+          </bean>
+	
+	 <!-- 静态资源过滤,如果DispatcherServlet的url映射路径是/，就需要进行静态资源过滤 -->
+	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+    <mvc:resources location="/jsp/" mapping="/jsp/**"></mvc:resources> 
+    
+
+	<bean id="multipartResolver"    
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">    
+        <!-- set the max upload size100MB -->    
+        <property name="maxUploadSize">    
+            <value>104857600</value>    
+        </property>    
+        <property name="maxInMemorySize">    
+            <value>4096</value>    
+        </property>   
+        <property name="defaultEncoding">  
+            <value>utf-8</value>  
+        </property>  
+    </bean>  
+    
+    
+    <!-- 配置登录拦截器 -->
+    <!-- <mvc:interceptors> 
+      <mvc:interceptor>
+         <mvc:mapping path="/UserData/**"/>
+         <mvc:mapping path="/IOData/**"/>
+         <mvc:mapping path="/DepartmentData/**"/>
+         <bean class="com.xr.interceptor.LoginInterceptor3"></bean>
+      </mvc:interceptor>
+    </mvc:interceptors>  -->
+ 
+
+      <!-- 配置视图解析器 -->
+	<bean
+ 	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/" /><!-- 前缀 -->
+		<property name="suffix" value=".jsp" /><!--后缀 -->
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+	</bean>
+	
+	
+	
+</beans>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xr.dao.MS_MeetAttendDataMapper" >
+  <resultMap id="BaseResultMap" type="com.xr.entity.MS_MeetAttendData" >
+    <id column="DataNo" property="datano" jdbcType="INTEGER" />
+    <result column="HolderNo" property="holderno" jdbcType="NVARCHAR" />
+    <result column="HolderName" property="holdername" jdbcType="NVARCHAR" />
+    <result column="MeetNo" property="meetno" jdbcType="INTEGER" />
+    <result column="MeetName" property="meetname" jdbcType="NVARCHAR" />
+    <result column="RoomNo" property="roomno" jdbcType="INTEGER" />
+    <result column="RoomName" property="roomname" jdbcType="NVARCHAR" />
+    <result column="AttendDate" property="attenddate" jdbcType="DATE" />
+    <result column="Status" property="status" jdbcType="NVARCHAR" />
+    <result column="TypeName" property="typename" jdbcType="NVARCHAR" />
+    <result column="DeptNo" property="deptno" jdbcType="NVARCHAR" />
+    <result column="DeptName" property="deptname" jdbcType="NVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DataNo, HolderNo, HolderName, MeetNo, MeetName, RoomNo, RoomName, AttendDate, Status, 
+    TypeName, DeptNo, DeptName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from MS_MeetAttendData
+    where DataNo = #{datano,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from MS_MeetAttendData
+    where DataNo = #{datano,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xr.entity.MS_MeetAttendData" >
+    insert into MS_MeetAttendData (DataNo, HolderNo, HolderName, 
+      MeetNo, MeetName, RoomNo, 
+      RoomName, AttendDate, Status, 
+      TypeName, DeptNo, DeptName
+      )
+    values (#{datano,jdbcType=INTEGER}, #{holderno,jdbcType=NVARCHAR}, #{holdername,jdbcType=NVARCHAR}, 
+      #{meetno,jdbcType=INTEGER}, #{meetname,jdbcType=NVARCHAR}, #{roomno,jdbcType=INTEGER}, 
+      #{roomname,jdbcType=NVARCHAR}, #{attenddate,jdbcType=DATE}, #{status,jdbcType=NVARCHAR}, 
+      #{typename,jdbcType=NVARCHAR}, #{deptno,jdbcType=NVARCHAR}, #{deptname,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xr.entity.MS_MeetAttendData" >
+    insert into MS_MeetAttendData
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="datano != null" >
+        DataNo,
+      </if>
+      <if test="holderno != null" >
+        HolderNo,
+      </if>
+      <if test="holdername != null" >
+        HolderName,
+      </if>
+      <if test="meetno != null" >
+        MeetNo,
+      </if>
+      <if test="meetname != null" >
+        MeetName,
+      </if>
+      <if test="roomno != null" >
+        RoomNo,
+      </if>
+      <if test="roomname != null" >
+        RoomName,
+      </if>
+      <if test="attenddate != null" >
+        AttendDate,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+      <if test="typename != null" >
+        TypeName,
+      </if>
+      <if test="deptno != null" >
+        DeptNo,
+      </if>
+      <if test="deptname != null" >
+        DeptName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="datano != null" >
+        #{datano,jdbcType=INTEGER},
+      </if>
+      <if test="holderno != null" >
+        #{holderno,jdbcType=NVARCHAR},
+      </if>
+      <if test="holdername != null" >
+        #{holdername,jdbcType=NVARCHAR},
+      </if>
+      <if test="meetno != null" >
+        #{meetno,jdbcType=INTEGER},
+      </if>
+      <if test="meetname != null" >
+        #{meetname,jdbcType=NVARCHAR},
+      </if>
+      <if test="roomno != null" >
+        #{roomno,jdbcType=INTEGER},
+      </if>
+      <if test="roomname != null" >
+        #{roomname,jdbcType=NVARCHAR},
+      </if>
+      <if test="attenddate != null" >
+        #{attenddate,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=NVARCHAR},
+      </if>
+      <if test="typename != null" >
+        #{typename,jdbcType=NVARCHAR},
+      </if>
+      <if test="deptno != null" >
+        #{deptno,jdbcType=NVARCHAR},
+      </if>
+      <if test="deptname != null" >
+        #{deptname,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xr.entity.MS_MeetAttendData" >
+    update MS_MeetAttendData
+    <set >
+      <if test="holderno != null" >
+        HolderNo = #{holderno,jdbcType=NVARCHAR},
+      </if>
+      <if test="holdername != null" >
+        HolderName = #{holdername,jdbcType=NVARCHAR},
+      </if>
+      <if test="meetno != null" >
+        MeetNo = #{meetno,jdbcType=INTEGER},
+      </if>
+      <if test="meetname != null" >
+        MeetName = #{meetname,jdbcType=NVARCHAR},
+      </if>
+      <if test="roomno != null" >
+        RoomNo = #{roomno,jdbcType=INTEGER},
+      </if>
+      <if test="roomname != null" >
+        RoomName = #{roomname,jdbcType=NVARCHAR},
+      </if>
+      <if test="attenddate != null" >
+        AttendDate = #{attenddate,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        Status = #{status,jdbcType=NVARCHAR},
+      </if>
+      <if test="typename != null" >
+        TypeName = #{typename,jdbcType=NVARCHAR},
+      </if>
+      <if test="deptno != null" >
+        DeptNo = #{deptno,jdbcType=NVARCHAR},
+      </if>
+      <if test="deptname != null" >
+        DeptName = #{deptname,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where DataNo = #{datano,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xr.entity.MS_MeetAttendData" >
+    update MS_MeetAttendData
+    set HolderNo = #{holderno,jdbcType=NVARCHAR},
+      HolderName = #{holdername,jdbcType=NVARCHAR},
+      MeetNo = #{meetno,jdbcType=INTEGER},
+      MeetName = #{meetname,jdbcType=NVARCHAR},
+      RoomNo = #{roomno,jdbcType=INTEGER},
+      RoomName = #{roomname,jdbcType=NVARCHAR},
+      AttendDate = #{attenddate,jdbcType=DATE},
+      Status = #{status,jdbcType=NVARCHAR},
+      TypeName = #{typename,jdbcType=NVARCHAR},
+      DeptNo = #{deptno,jdbcType=NVARCHAR},
+      DeptName = #{deptname,jdbcType=NVARCHAR}
+    where DataNo = #{datano,jdbcType=INTEGER}
+  </update>
+</mapper>

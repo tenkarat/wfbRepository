@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xr.dao.ACL_RolesMapper" >
+  <resultMap id="BaseResultMap" type="com.xr.entity.ACL_Roles" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="Deleted" property="deleted" jdbcType="BIT" />
+    <result column="Date_Entered" property="dateEntered" jdbcType="TIMESTAMP" />
+    <result column="Code" property="code" jdbcType="NVARCHAR" />
+    <result column="Name" property="name" jdbcType="NVARCHAR" />
+    <result column="Description" property="description" jdbcType="NVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, Deleted, Date_Entered, Code, Name, Description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ACL_Roles
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ACL_Roles
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xr.entity.ACL_Roles" >
+    insert into ACL_Roles (ID, Deleted, Date_Entered, 
+      Code, Name, Description
+      )
+    values (#{id,jdbcType=INTEGER}, #{deleted,jdbcType=BIT}, #{dateEntered,jdbcType=TIMESTAMP}, 
+      #{code,jdbcType=NVARCHAR}, #{name,jdbcType=NVARCHAR}, #{description,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xr.entity.ACL_Roles" >
+    insert into ACL_Roles
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="deleted != null" >
+        Deleted,
+      </if>
+      <if test="dateEntered != null" >
+        Date_Entered,
+      </if>
+      <if test="code != null" >
+        Code,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="description != null" >
+        Description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="dateEntered != null" >
+        #{dateEntered,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=NVARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xr.entity.ACL_Roles" >
+    update ACL_Roles
+    <set >
+      <if test="deleted != null" >
+        Deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="dateEntered != null" >
+        Date_Entered = #{dateEntered,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null" >
+        Code = #{code,jdbcType=NVARCHAR},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null" >
+        Description = #{description,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xr.entity.ACL_Roles" >
+    update ACL_Roles
+    set Deleted = #{deleted,jdbcType=BIT},
+      Date_Entered = #{dateEntered,jdbcType=TIMESTAMP},
+      Code = #{code,jdbcType=NVARCHAR},
+      Name = #{name,jdbcType=NVARCHAR},
+      Description = #{description,jdbcType=NVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

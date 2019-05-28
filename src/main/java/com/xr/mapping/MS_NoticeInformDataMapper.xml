@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xr.dao.MS_NoticeInformDataMapper" >
+  <resultMap id="BaseResultMap" type="com.xr.entity.MS_NoticeInformData" >
+    <id column="NoticeNo" property="noticeno" jdbcType="INTEGER" />
+    <result column="HolderNo" property="holderno" jdbcType="NVARCHAR" />
+    <result column="HolderName" property="holdername" jdbcType="NVARCHAR" />
+    <result column="NoticeContent" property="noticecontent" jdbcType="NVARCHAR" />
+    <result column="MeetNo" property="meetno" jdbcType="INTEGER" />
+    <result column="IsAttend" property="isattend" jdbcType="NVARCHAR" />
+    <result column="ReasonText" property="reasontext" jdbcType="NVARCHAR" />
+    <result column="HolderNo2" property="holderno2" jdbcType="NVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    NoticeNo, HolderNo, HolderName, NoticeContent, MeetNo, IsAttend, ReasonText, HolderNo2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from MS_NoticeInformData
+    where NoticeNo = #{noticeno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from MS_NoticeInformData
+    where NoticeNo = #{noticeno,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xr.entity.MS_NoticeInformData" >
+    insert into MS_NoticeInformData (NoticeNo, HolderNo, HolderName, 
+      NoticeContent, MeetNo, IsAttend, 
+      ReasonText, HolderNo2)
+    values (#{noticeno,jdbcType=INTEGER}, #{holderno,jdbcType=NVARCHAR}, #{holdername,jdbcType=NVARCHAR}, 
+      #{noticecontent,jdbcType=NVARCHAR}, #{meetno,jdbcType=INTEGER}, #{isattend,jdbcType=NVARCHAR}, 
+      #{reasontext,jdbcType=NVARCHAR}, #{holderno2,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xr.entity.MS_NoticeInformData" >
+    insert into MS_NoticeInformData
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="noticeno != null" >
+        NoticeNo,
+      </if>
+      <if test="holderno != null" >
+        HolderNo,
+      </if>
+      <if test="holdername != null" >
+        HolderName,
+      </if>
+      <if test="noticecontent != null" >
+        NoticeContent,
+      </if>
+      <if test="meetno != null" >
+        MeetNo,
+      </if>
+      <if test="isattend != null" >
+        IsAttend,
+      </if>
+      <if test="reasontext != null" >
+        ReasonText,
+      </if>
+      <if test="holderno2 != null" >
+        HolderNo2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="noticeno != null" >
+        #{noticeno,jdbcType=INTEGER},
+      </if>
+      <if test="holderno != null" >
+        #{holderno,jdbcType=NVARCHAR},
+      </if>
+      <if test="holdername != null" >
+        #{holdername,jdbcType=NVARCHAR},
+      </if>
+      <if test="noticecontent != null" >
+        #{noticecontent,jdbcType=NVARCHAR},
+      </if>
+      <if test="meetno != null" >
+        #{meetno,jdbcType=INTEGER},
+      </if>
+      <if test="isattend != null" >
+        #{isattend,jdbcType=NVARCHAR},
+      </if>
+      <if test="reasontext != null" >
+        #{reasontext,jdbcType=NVARCHAR},
+      </if>
+      <if test="holderno2 != null" >
+        #{holderno2,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xr.entity.MS_NoticeInformData" >
+    update MS_NoticeInformData
+    <set >
+      <if test="holderno != null" >
+        HolderNo = #{holderno,jdbcType=NVARCHAR},
+      </if>
+      <if test="holdername != null" >
+        HolderName = #{holdername,jdbcType=NVARCHAR},
+      </if>
+      <if test="noticecontent != null" >
+        NoticeContent = #{noticecontent,jdbcType=NVARCHAR},
+      </if>
+      <if test="meetno != null" >
+        MeetNo = #{meetno,jdbcType=INTEGER},
+      </if>
+      <if test="isattend != null" >
+        IsAttend = #{isattend,jdbcType=NVARCHAR},
+      </if>
+      <if test="reasontext != null" >
+        ReasonText = #{reasontext,jdbcType=NVARCHAR},
+      </if>
+      <if test="holderno2 != null" >
+        HolderNo2 = #{holderno2,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where NoticeNo = #{noticeno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xr.entity.MS_NoticeInformData" >
+    update MS_NoticeInformData
+    set HolderNo = #{holderno,jdbcType=NVARCHAR},
+      HolderName = #{holdername,jdbcType=NVARCHAR},
+      NoticeContent = #{noticecontent,jdbcType=NVARCHAR},
+      MeetNo = #{meetno,jdbcType=INTEGER},
+      IsAttend = #{isattend,jdbcType=NVARCHAR},
+      ReasonText = #{reasontext,jdbcType=NVARCHAR},
+      HolderNo2 = #{holderno2,jdbcType=NVARCHAR}
+    where NoticeNo = #{noticeno,jdbcType=INTEGER}
+  </update>
+</mapper>

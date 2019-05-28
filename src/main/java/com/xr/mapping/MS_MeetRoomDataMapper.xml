@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xr.dao.MS_MeetRoomDataMapper" >
+  <resultMap id="BaseResultMap" type="com.xr.entity.MS_MeetRoomData" >
+    <id column="RoomNo" property="roomno" jdbcType="INTEGER" />
+    <result column="RoomCode" property="roomcode" jdbcType="NVARCHAR" />
+    <result column="RoomName" property="roomname" jdbcType="NVARCHAR" />
+    <result column="RoomAddress" property="roomaddress" jdbcType="NVARCHAR" />
+    <result column="Capacity" property="capacity" jdbcType="INTEGER" />
+    <result column="DoorList" property="doorlist" jdbcType="NVARCHAR" />
+    <result column="DevicesInfo" property="devicesinfo" jdbcType="NVARCHAR" />
+    <result column="IsShadow" property="isshadow" jdbcType="NVARCHAR" />
+    <result column="Wifi" property="wifi" jdbcType="NVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RoomNo, RoomCode, RoomName, RoomAddress, Capacity, DoorList, DevicesInfo, IsShadow, 
+    Wifi
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from MS_MeetRoomData
+    where RoomNo = #{roomno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from MS_MeetRoomData
+    where RoomNo = #{roomno,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xr.entity.MS_MeetRoomData" >
+    insert into MS_MeetRoomData (RoomNo, RoomCode, RoomName, 
+      RoomAddress, Capacity, DoorList, 
+      DevicesInfo, IsShadow, Wifi
+      )
+    values (#{roomno,jdbcType=INTEGER}, #{roomcode,jdbcType=NVARCHAR}, #{roomname,jdbcType=NVARCHAR}, 
+      #{roomaddress,jdbcType=NVARCHAR}, #{capacity,jdbcType=INTEGER}, #{doorlist,jdbcType=NVARCHAR}, 
+      #{devicesinfo,jdbcType=NVARCHAR}, #{isshadow,jdbcType=NVARCHAR}, #{wifi,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xr.entity.MS_MeetRoomData" >
+    insert into MS_MeetRoomData
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roomno != null" >
+        RoomNo,
+      </if>
+      <if test="roomcode != null" >
+        RoomCode,
+      </if>
+      <if test="roomname != null" >
+        RoomName,
+      </if>
+      <if test="roomaddress != null" >
+        RoomAddress,
+      </if>
+      <if test="capacity != null" >
+        Capacity,
+      </if>
+      <if test="doorlist != null" >
+        DoorList,
+      </if>
+      <if test="devicesinfo != null" >
+        DevicesInfo,
+      </if>
+      <if test="isshadow != null" >
+        IsShadow,
+      </if>
+      <if test="wifi != null" >
+        Wifi,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roomno != null" >
+        #{roomno,jdbcType=INTEGER},
+      </if>
+      <if test="roomcode != null" >
+        #{roomcode,jdbcType=NVARCHAR},
+      </if>
+      <if test="roomname != null" >
+        #{roomname,jdbcType=NVARCHAR},
+      </if>
+      <if test="roomaddress != null" >
+        #{roomaddress,jdbcType=NVARCHAR},
+      </if>
+      <if test="capacity != null" >
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="doorlist != null" >
+        #{doorlist,jdbcType=NVARCHAR},
+      </if>
+      <if test="devicesinfo != null" >
+        #{devicesinfo,jdbcType=NVARCHAR},
+      </if>
+      <if test="isshadow != null" >
+        #{isshadow,jdbcType=NVARCHAR},
+      </if>
+      <if test="wifi != null" >
+        #{wifi,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xr.entity.MS_MeetRoomData" >
+    update MS_MeetRoomData
+    <set >
+      <if test="roomcode != null" >
+        RoomCode = #{roomcode,jdbcType=NVARCHAR},
+      </if>
+      <if test="roomname != null" >
+        RoomName = #{roomname,jdbcType=NVARCHAR},
+      </if>
+      <if test="roomaddress != null" >
+        RoomAddress = #{roomaddress,jdbcType=NVARCHAR},
+      </if>
+      <if test="capacity != null" >
+        Capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="doorlist != null" >
+        DoorList = #{doorlist,jdbcType=NVARCHAR},
+      </if>
+      <if test="devicesinfo != null" >
+        DevicesInfo = #{devicesinfo,jdbcType=NVARCHAR},
+      </if>
+      <if test="isshadow != null" >
+        IsShadow = #{isshadow,jdbcType=NVARCHAR},
+      </if>
+      <if test="wifi != null" >
+        Wifi = #{wifi,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where RoomNo = #{roomno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xr.entity.MS_MeetRoomData" >
+    update MS_MeetRoomData
+    set RoomCode = #{roomcode,jdbcType=NVARCHAR},
+      RoomName = #{roomname,jdbcType=NVARCHAR},
+      RoomAddress = #{roomaddress,jdbcType=NVARCHAR},
+      Capacity = #{capacity,jdbcType=INTEGER},
+      DoorList = #{doorlist,jdbcType=NVARCHAR},
+      DevicesInfo = #{devicesinfo,jdbcType=NVARCHAR},
+      IsShadow = #{isshadow,jdbcType=NVARCHAR},
+      Wifi = #{wifi,jdbcType=NVARCHAR}
+    where RoomNo = #{roomno,jdbcType=INTEGER}
+  </update>
+</mapper>

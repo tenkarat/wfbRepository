@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>会议签到</title>
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/public.css" />
+	</head>
+	<body>
+		<div id="cme-main">
+			
+			<div class="main-content">
+				<div class="main-tab">
+					<div class="label fl curr"><a href="javascript:;">待审核页面</a></div>
+					<div class="label fl"><a href="javascript:;">未审核页面</a></div>
+				</div>
+			
+				<div class="main-form">	
+					<!--input开始-->
+					<div class="form-term clearfix">
+						<div class="lable"><span>*</span>文本框：</div>
+						<div class="control">
+							<input type="text" placeholder="" class="input">
+						</div>
+					</div>
+					<!--input结束-->
+					<!--时间选择输入框开始-->
+					<div class="form-term clearfix" id="time">
+						<div class="lable"><span>&nbsp;</span>时间：</div>
+						<div class="control">
+							<input type="text" placeholder="开始时间" class="input date Wdate"  id="txtBeginDay" name="beginday" onclick="WdatePicker({dateFmt:'yyyy-MM-dd' ,maxDate:'#F{$dp.$D(\'txtEndDay\')}'});">
+							<span class="space">-</span>
+							<input type="text" placeholder="结束时间" class="input date Wdate"  id="txtEndDay" name="endday" onclick="WdatePicker({dateFmt:'yyyy-MM-dd' ,minDate:'#F{$dp.$D(\'txtBeginDay\')}'});">
+						</div>
+					</div>
+					<!--时间选择输入框开始-->	
+					<!--上传文件开始-->
+					<div class="form-term clearfix">
+						<div class="lable"><span>&nbsp;</span>上传文件：</div>
+						<div class="control">
+							<div class="upload-btn" style="position:relative;">
+		           	         	<a href="javascript:;">选择</a>
+		           	         	<input type="file"/>
+			           	    </div>
+							<input type="text" placeholder="" class="input readonly" readonly="">
+						</div>
+					</div>
+					<!--上传文件结束-->
+					<!--弹出层控件开始-->
+			        <div class="form-term clearfix">
+						<div class="lable"><span>&nbsp;</span>弹出层控件：</div>
+			            <div class="control">
+			                <label class="layer-row">
+			                    <input type="text" class="input">
+		                    	<a href="javascript:;" class="layer-btn">选择</a>
+			                </label>
+			            </div>
+			        </div>
+			        <!--弹出层控件结束-->
+					<!--select开始-->
+					<div class="form-term clearfix">
+						<div class="lable"><span>*</span>下拉框：</div>
+						<div class="control clearfix">
+							<select>
+								<option>请选择一级产业行业</option>
+								<option>IT/互联网</option>
+								<option>IT/互联网</option>
+								<option>IT/互联网</option>
+								<option>IT/互联网</option>
+							</select>
+							<select>
+								<option>请选择一级产业行业</option>
+								<option>IT/互联网</option>
+								<option>IT/互联网</option>
+								<option>IT/互联网</option>
+								<option>IT/互联网</option>
+							</select>
+							<select>
+								<option>请选择一级产业行业</option>
+								<option>IT/互联网</option>
+								<option>IT/互联网</option>
+								<option>IT/互联网</option>
+								<option>IT/互联网</option>
+							</select>
+						</div>								
+					</div>
+					<!--select结束-->
+					<!--二级域名 开始-->
+					<div class="form-term clearfix">
+						<div class="lable">二级域名：</div>
+						<div class="control">
+							<label class="layer-row">
+								http://
+								<input type="text" placeholder="" class="input">
+								.cmeplaza.com
+								<a href="javascript:;" class="layer-btn">检测</a>
+							</label>
+						</div>
+					</div>
+					<!--二级域名 结束-->
+					<!--上传图片开始-->
+					<div class="form-term clearfix">
+						<div class="lable"><span>*</span>长传图片：</div>
+						<div class="control">
+							<a href="javascript:;" class="upload-pic"><img src="images/icons/upload_img.png" /></a>
+						</div>
+					</div>
+					<!--上传图片结束-->
+					
+					<!--不可编辑开始-->
+					<div class="form-term clearfix">
+						<div class="lable"><span>&nbsp;</span>文本框：</div>
+						<div class="control">
+							<div class="input-unedit">
+								<span class="info-text">方案项目</span>
+								<span class="info-text">项目名称</span>
+								<span class="info-text">方案项目</span>
+								<span class="info-text">项目名称</span>
+							</div>
+						</div>
+					</div>
+					<!--不可编辑结束-->
+					<!--textarea开始-->
+					<div class="form-term clearfix">
+						<div class="lable"><span>&nbsp;</span>多行文本：</div>
+						<div class="control">
+							<textarea placeholder="" class="textarea"></textarea>
+						</div>
+					</div>
+					<!--textarea结束-->
+					
+					<!--radio开始-->
+					<div class="form-term clearfix" id="radio">
+						<div class="lable"><span>&nbsp;</span>默认赋值：</div>
+						<div class="control">
+							<div class="clearfix">
+								<span class="radio">选项一</span>
+								<span class="radio curr">选项一</span>
+							</div>
+							
+						</div>
+					</div>
+					<!--radio结束-->
+					<!--复选框开始-->
+					<div class="form-term clearfix" id="checkbox">
+						<div class="lable"><span>&nbsp;</span>默认赋值：</div>
+						<div class="control">
+							<div class="clearfix">
+								<span class="checkbox">选项一</span>
+								<span class="checkbox curr">选项二 </span>
+								<span class="checkbox">选项三</span>
+								<span class="checkbox">选项四</span>
+							</div>
+							
+						</div>
+					</div>
+					<!--复选框结束-->
+				
+					
+					<!--默认开关开始-->
+					<div class="form-term clearfix">
+						<div class="lable"><span>&nbsp;</span>默认开关：</div>
+						<div class="control">
+							<div class="clearfix">
+								<span class="open-btn curr">
+									<em>ON</em>
+									<i></i>
+								</span>
+							</div>
+							
+						</div>
+					</div>
+					<!--默认开关结束-->
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+	    <script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//选项
+				$("#radio").find(".control span").click(function(){
+					$(this).addClass("curr").siblings().removeClass("curr");
+				});
+				//复选框
+				$("#checkbox").find(".control span").click(function(){
+					if($(this).hasClass("curr")){
+						$(this).removeClass("curr");
+					}else{
+						$(this).addClass("curr");
+					}
+				});
+				
+				   //on or off
+				   $(".control .open-btn").click(function(){
+				   	  if($(this).hasClass("curr")){
+				   	  	  $(this).removeClass("curr");
+				   	  	  $(this).find("em").html("OFF");
+				   	  }else{
+				   	  	  $(this).addClass("curr");
+				   	  	  $(this).find("em").html("ON");
+				   	  }
+				   })
+				  
+			});
+		</script>	
+	</body>
+</html>

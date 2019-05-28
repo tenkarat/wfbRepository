@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xr.dao.MS_MeetingDataMapper" >
+  <resultMap id="BaseResultMap" type="com.xr.entity.MS_MeetingData" >
+    <id column="MeetNo" property="meetno" jdbcType="INTEGER" />
+    <result column="MeetName" property="meetname" jdbcType="NVARCHAR" />
+    <result column="HolderNo" property="holderno" jdbcType="NVARCHAR" />
+    <result column="MeetType" property="meettype" jdbcType="NVARCHAR" />
+    <result column="HolderNo1" property="holderno1" jdbcType="NVARCHAR" />
+    <result column="StartTime" property="starttime" jdbcType="DATE" />
+    <result column="EndTime" property="endtime" jdbcType="DATE" />
+    <result column="MeetContent" property="meetcontent" jdbcType="NVARCHAR" />
+    <result column="ConformInfo" property="conforminfo" jdbcType="NVARCHAR" />
+    <result column="ApplyStatus" property="applystatus" jdbcType="NVARCHAR" />
+    <result column="HolderNo2" property="holderno2" jdbcType="NVARCHAR" />
+    <result column="HolderName2" property="holdername2" jdbcType="NVARCHAR" />
+    <result column="HolderName3" property="holdername3" jdbcType="NVARCHAR" />
+    <result column="MeetAnnex" property="meetannex" jdbcType="NVARCHAR" />
+    <result column="RoomNo" property="roomno" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    MeetNo, MeetName, HolderNo, MeetType, HolderNo1, StartTime, EndTime, MeetContent, 
+    ConformInfo, ApplyStatus, HolderNo2, HolderName2, HolderName3, MeetAnnex, RoomNo
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from MS_MeetingData
+    where MeetNo = #{meetno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from MS_MeetingData
+    where MeetNo = #{meetno,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xr.entity.MS_MeetingData" >
+    insert into MS_MeetingData (MeetNo, MeetName, HolderNo, 
+      MeetType, HolderNo1, StartTime, 
+      EndTime, MeetContent, ConformInfo, 
+      ApplyStatus, HolderNo2, HolderName2, 
+      HolderName3, MeetAnnex, RoomNo
+      )
+    values (#{meetno,jdbcType=INTEGER}, #{meetname,jdbcType=NVARCHAR}, #{holderno,jdbcType=NVARCHAR}, 
+      #{meettype,jdbcType=NVARCHAR}, #{holderno1,jdbcType=NVARCHAR}, #{starttime,jdbcType=DATE}, 
+      #{endtime,jdbcType=DATE}, #{meetcontent,jdbcType=NVARCHAR}, #{conforminfo,jdbcType=NVARCHAR}, 
+      #{applystatus,jdbcType=NVARCHAR}, #{holderno2,jdbcType=NVARCHAR}, #{holdername2,jdbcType=NVARCHAR}, 
+      #{holdername3,jdbcType=NVARCHAR}, #{meetannex,jdbcType=NVARCHAR}, #{roomno,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xr.entity.MS_MeetingData" >
+    insert into MS_MeetingData
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="meetno != null" >
+        MeetNo,
+      </if>
+      <if test="meetname != null" >
+        MeetName,
+      </if>
+      <if test="holderno != null" >
+        HolderNo,
+      </if>
+      <if test="meettype != null" >
+        MeetType,
+      </if>
+      <if test="holderno1 != null" >
+        HolderNo1,
+      </if>
+      <if test="starttime != null" >
+        StartTime,
+      </if>
+      <if test="endtime != null" >
+        EndTime,
+      </if>
+      <if test="meetcontent != null" >
+        MeetContent,
+      </if>
+      <if test="conforminfo != null" >
+        ConformInfo,
+      </if>
+      <if test="applystatus != null" >
+        ApplyStatus,
+      </if>
+      <if test="holderno2 != null" >
+        HolderNo2,
+      </if>
+      <if test="holdername2 != null" >
+        HolderName2,
+      </if>
+      <if test="holdername3 != null" >
+        HolderName3,
+      </if>
+      <if test="meetannex != null" >
+        MeetAnnex,
+      </if>
+      <if test="roomno != null" >
+        RoomNo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="meetno != null" >
+        #{meetno,jdbcType=INTEGER},
+      </if>
+      <if test="meetname != null" >
+        #{meetname,jdbcType=NVARCHAR},
+      </if>
+      <if test="holderno != null" >
+        #{holderno,jdbcType=NVARCHAR},
+      </if>
+      <if test="meettype != null" >
+        #{meettype,jdbcType=NVARCHAR},
+      </if>
+      <if test="holderno1 != null" >
+        #{holderno1,jdbcType=NVARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="meetcontent != null" >
+        #{meetcontent,jdbcType=NVARCHAR},
+      </if>
+      <if test="conforminfo != null" >
+        #{conforminfo,jdbcType=NVARCHAR},
+      </if>
+      <if test="applystatus != null" >
+        #{applystatus,jdbcType=NVARCHAR},
+      </if>
+      <if test="holderno2 != null" >
+        #{holderno2,jdbcType=NVARCHAR},
+      </if>
+      <if test="holdername2 != null" >
+        #{holdername2,jdbcType=NVARCHAR},
+      </if>
+      <if test="holdername3 != null" >
+        #{holdername3,jdbcType=NVARCHAR},
+      </if>
+      <if test="meetannex != null" >
+        #{meetannex,jdbcType=NVARCHAR},
+      </if>
+      <if test="roomno != null" >
+        #{roomno,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xr.entity.MS_MeetingData" >
+    update MS_MeetingData
+    <set >
+      <if test="meetname != null" >
+        MeetName = #{meetname,jdbcType=NVARCHAR},
+      </if>
+      <if test="holderno != null" >
+        HolderNo = #{holderno,jdbcType=NVARCHAR},
+      </if>
+      <if test="meettype != null" >
+        MeetType = #{meettype,jdbcType=NVARCHAR},
+      </if>
+      <if test="holderno1 != null" >
+        HolderNo1 = #{holderno1,jdbcType=NVARCHAR},
+      </if>
+      <if test="starttime != null" >
+        StartTime = #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null" >
+        EndTime = #{endtime,jdbcType=DATE},
+      </if>
+      <if test="meetcontent != null" >
+        MeetContent = #{meetcontent,jdbcType=NVARCHAR},
+      </if>
+      <if test="conforminfo != null" >
+        ConformInfo = #{conforminfo,jdbcType=NVARCHAR},
+      </if>
+      <if test="applystatus != null" >
+        ApplyStatus = #{applystatus,jdbcType=NVARCHAR},
+      </if>
+      <if test="holderno2 != null" >
+        HolderNo2 = #{holderno2,jdbcType=NVARCHAR},
+      </if>
+      <if test="holdername2 != null" >
+        HolderName2 = #{holdername2,jdbcType=NVARCHAR},
+      </if>
+      <if test="holdername3 != null" >
+        HolderName3 = #{holdername3,jdbcType=NVARCHAR},
+      </if>
+      <if test="meetannex != null" >
+        MeetAnnex = #{meetannex,jdbcType=NVARCHAR},
+      </if>
+      <if test="roomno != null" >
+        RoomNo = #{roomno,jdbcType=INTEGER},
+      </if>
+    </set>
+    where MeetNo = #{meetno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xr.entity.MS_MeetingData" >
+    update MS_MeetingData
+    set MeetName = #{meetname,jdbcType=NVARCHAR},
+      HolderNo = #{holderno,jdbcType=NVARCHAR},
+      MeetType = #{meettype,jdbcType=NVARCHAR},
+      HolderNo1 = #{holderno1,jdbcType=NVARCHAR},
+      StartTime = #{starttime,jdbcType=DATE},
+      EndTime = #{endtime,jdbcType=DATE},
+      MeetContent = #{meetcontent,jdbcType=NVARCHAR},
+      ConformInfo = #{conforminfo,jdbcType=NVARCHAR},
+      ApplyStatus = #{applystatus,jdbcType=NVARCHAR},
+      HolderNo2 = #{holderno2,jdbcType=NVARCHAR},
+      HolderName2 = #{holdername2,jdbcType=NVARCHAR},
+      HolderName3 = #{holdername3,jdbcType=NVARCHAR},
+      MeetAnnex = #{meetannex,jdbcType=NVARCHAR},
+      RoomNo = #{roomno,jdbcType=INTEGER}
+    where MeetNo = #{meetno,jdbcType=INTEGER}
+  </update>
+</mapper>

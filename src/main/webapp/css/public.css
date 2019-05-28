@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+
+
+.pages { margin-top: 25px; text-align: center; overflow: hidden; zoom: 1; }
+.pages a, .pages span { font-size: 12px; text-decoration: none; display: inline-block; height: 30px; line-height: 30px; margin-left: 4px; cursor: pointer; transition: all .2s; padding: 0 15px; border-radius: 2px; border: 1px solid #ddd; color: #666; background-color: #fff; }
+.pages .curr { border: 1px solid #3aace9; color: #fff; background-color: #3aace9; }
+.pages span:not(.current) { cursor: not-allowed; }
+.pages .input { width: 44px; display: inline-block; height: 30px; line-height: 30px; border-radius: 2px; border: 1px solid #ddd; color: #666; margin-left: 4px; }
+
+/*表格 开始*/
+table { width: 100%; table-layout: fixed; }
+table tr td { text-align: center; border: 1px solid #ddd; padding: 10px; font-size: 12px; color: #333; word-break: keep-all; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+table tr:first-of-type td { background: #f5f5f5; font-weight: bold; text-align: center; }
+table tr:hover td { background: #f6fbff; }
+table tr:hover:first-of-type td { background: #f5f5f5; }
+table tr td a { display: inline-block; color: #4c9dfb; margin: 0 2px; }
+table tr td a:hover { text-decoration: underline; color: #4c9dfb; }
+table tr td input { max-width: -moz-calc(100% - 40px); max-width: -webkit-calc(100% - 40px); max-width: calc(100% - 40px); height: 26px; line-height: 26px; padding: 0 10px; border: 1px solid #ddd; outline: none; }
+table tr td select { max-width: -moz-calc(100% - 20px); max-width: -webkit-calc(100% - 20px); max-width: calc(100% - 20px); height: 28px; border: 1px solid #ddd; outline: none; }
+table tr td textarea { max-width: -moz-calc(100% - 40px); max-width: -webkit-calc(100% - 40px); max-width: calc(100% - 40px); height: 26px; line-height: 26px; padding: 0 10px; border: 1px solid #ddd; outline: none; color: #333; }
+
+#frame-top{position: absolute;top: 0;left: 0px;right: 0;height: 58px;background: #3279e1;}
+#frame-top .top-logo{  padding-left: 30px;}
+#frame-top .top-logo .logo{padding-top: 12px;}
+#frame-top .top-logo .title{ line-height: 58px; color: #fff; font-size: 26px; padding-left: 16px;}
+
+#frame-top .actionbar{ position: absolute; top: 0px; right: 0;}
+#frame-top .actionbar .personnel{ line-height: 58px; margin-right: 8px;}
+#frame-top .actionbar .personnel img{width:38px; height: 38px; border: 2px solid #fff; border-radius: 50%;margin: 8px; vertical-align: middle;}
+#frame-top .actionbar .personnel .name{ color: #fff; display: inline-block;}
+#frame-top .actionbar .act-list{line-height: 58px;}
+#frame-top .actionbar .act-list a{ display: block; padding: 0 20px; color: #fff; }
+#frame-top .actionbar .act-list:hover{background: #2b68bf;}
+#frame-top .actionbar .act-list img{ vertical-align: middle; padding-right: 6px; margin-top: -3px;}
+#frame-top .actionbar .tid .new{ position: relative;}
+#frame-top .actionbar .tid .new .tips{ position: absolute; top: 14px; line-height: 14px; padding: 0 3px; border-radius: 6px; left: 8px; background: #f87257; font-size: 10px;} 
+#frame-top .actionbar .curr{ background: #2b68bf;}
+
+
+#frame-left{position:absolute;top:58px;bottom:0;left:0;width: 200px;background:#34445d;}
+#frame-left .menu-item{ margin: 2px 0 ;}
+#frame-left .menu-item .menu{ height: 48px; line-height: 48px; display: block; position: relative; color: #f2f2f2; font-size: 14px;}
+#frame-left .menu-item.open{ background: #314055; }
+#frame-left .menu-item.open .menu{ border-left: 4px solid #4377cb;}
+#frame-left .menu-item.open .menu img{ margin-left: 12px;}
+#frame-left .menu-item .menu img{ margin-left: 16px; vertical-align: middle; margin-top: -40px; display: inline-block;}
+#frame-left .menu-item .menu span{ padding-left: 8px; display: inline-block; width: 120px;overflow: hidden;text-overflow: ellipsis;word-break: keep-all;white-space: nowrap;}
+#frame-left .menu-item .menu i{ width: 14px; height: 14px; position: absolute; right: 18px; top: 16px; background: url(../images/icons/arrow.png) no-repeat;}
+#frame-left .menu-item.open .menu i{background: url(../images/icons/arrow_down.png) no-repeat; width: 14px; height: 8px;right:20px; top: 20px;}
+#frame-left .menu-item .submenu-box{ margin: 6px 0;}
+#frame-left .menu-item .submenu-box .submenu{ display: block; height:36px; line-height: 36px; padding-left: 48px; color: #f2f2f2;}
+#frame-left .menu-item .submenu-box .submenu.curr{ background: #4d8ae4;}
+/*最新框架样式 结束*/
+#frame-container{position:fixed;top:58px;left:200px;right:0;bottom:0;background: #f4f4f4;}
