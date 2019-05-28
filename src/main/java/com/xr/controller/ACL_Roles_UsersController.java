@@ -11,6 +11,9 @@ import com.xr.service.IACL_Roles_UsersService;
 public class ACL_Roles_UsersController {
 	@Autowired
 	private IACL_Roles_UsersService iarus;
+	public void  test(){
+		System.out.println("测试git提交");
+	}
 	
 
 }
